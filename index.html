@@ -68,7 +68,6 @@
       color: white;
     }
 
-    /* Sección de blog */
     #blogSection {
       display: none;
       padding: 40px;
@@ -82,32 +81,37 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    /* Estilos responsivos para pantallas pequeñas */
     @media (max-width: 768px) {
+      .contenedor-imagen {
+        background-image: url('fondo_mobile.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 40px 20px;
+      }
+
       .barra-superior {
         flex-direction: column;
-        gap: 20px;
         align-items: center;
-        padding: 20px;
+        gap: 20px;
+      }
+
+      .titulo-central {
+        font-size: 60px;
+        color: #020202;
+        margin-bottom: 20px;
       }
 
       .botones-izquierda,
       .botones-derecha {
-        justify-content: center;
-        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
       }
 
-      .titulo-central {
-        order: -1;
-        font-size: 36px;
-        margin-bottom: 10px;
-      }
-      body,
       .botones-izquierda button,
-      .botones-derecha button,
-
-      button {
-        color: black !important;
+      .botones-derecha button {
+        font-size: 24px;
+        color: black;
       }
     }
   </style>
@@ -129,5 +133,7 @@
     </div>
   </div>
 </div>
+
 </body>
 </html>
+
