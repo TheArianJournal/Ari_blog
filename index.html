@@ -4,57 +4,62 @@
   <meta charset="UTF-8">
   <title>The Arian Journal</title>
   <style>
-    .contenedor-imagen {
-      position: relative;
-      display: inline-block;
-    }
-
-    .imagen-fondo {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;       /* o contain, según tu caso */
-      object-position: center; /* opcional, para centrar el recorte */
-
-    }
-
-    .superior {
-      position: absolute;
-      top: 65px;
-      left: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 80px;
+    * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    .botones-izquierda, .botones-derecha {
+    body, html {
+      font-family: sans-serif;
+    }
+
+    .contenedor-imagen {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url('summer_season.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .barra-superior {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      padding: 0 40px;
       display: flex;
-      gap: 100px;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .botones-izquierda,
+    .botones-derecha {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
     }
 
     .titulo-central {
-      position: absolute;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
       font-size: 50px;
       font-weight: bold;
       color: rgb(191, 206, 212);
       font-family: "Times", Helvetica, sans-serif;
+      text-align: center;
+      flex-shrink: 0;
     }
 
     button {
       background: transparent;
-      padding: 10px 10px;
+      padding: 10px;
       border: none;
-      background-color: transparent;
       cursor: pointer;
-      border-radius: 5px;
       font-size: 23px;
+      border-radius: 5px;
     }
+
     .botones-izquierda button {
       color: black;
     }
@@ -62,9 +67,8 @@
     .botones-derecha button {
       color: white;
     }
-    button:hover {
-      background-color: transparent;
-    }
+
+    /* Sección de blog */
     #blogSection {
       display: none;
       padding: 40px;
@@ -77,55 +81,53 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
+    /* Estilos responsivos para pantallas pequeñas */
+    @media (max-width: 768px) {
+      .barra-superior {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .botones-izquierda,
+      .botones-derecha {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .titulo-central {
+        order: -1;
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      body,
+      .botones-izquierda button,
+      .botones-derecha button,
+
+      button {
+        color: black !important;
+      }
+    }
   </style>
 </head>
 <body>
-<div class="contenedor-imagen" id="paginaPrincipal">
-  <img class="imagen-fondo" src="summer_season.jpg" alt="Imagen de ejemplo">
 
-  <div class="superior">
+<div class="contenedor-imagen" id="paginaPrincipal">
+  <div class="barra-superior">
     <div class="botones-izquierda">
-      <a href="blogs.html">
-        <button>Blogs</button>
-      </a>
+      <a href="blogs.html"><button>Blogs</button></a>
       <button>About</button>
     </div>
+
+    <div class="titulo-central">ARIAN</div>
+
     <div class="botones-derecha">
       <button>Recomendaciones</button>
-      <button>Galeria</button>
+      <button>Galería</button>
     </div>
   </div>
-
-  <div class="titulo-central">ARIAN</div>
 </div>
-  <div id="blogSection" style="display: none;">
-  <h2>No sé si esto es un blog o un diario, pero está pasando.</h2>
-  <p>
-    Hola soy FERNANDO ARIAN, en este momento de mi vida estoy buscandome (LLEVO ASI 3 AÑOS) JAJAJA
-    este website es un proyecto que tenia pensado desde hace mucho, pero no sabia por donde empezar y tampoco tenia las herramientas, al dia de hoy les contare que No estaba buscando un proyecto.
-    Estaba buscando un espacio.
-    Uno donde el café no fuera solo café, sino un ritual, donde escribir fuera una forma de volver a mí, y los paisajes se pudieran guardar como quien guarda una emoción.
-    Así nació Arian: una especie de diario, galería y espejo.
-    No tengo respuestas. Pero tengo palabras, fotos, canciones, lugares y emociones que me habitan. Y necesitaba un lugar para ponerlas.
-    Este no es solo un blog. Es mi manera de decir: “estoy acá”, con todo lo que eso significa. 
-    Espero lo tomen con tanto cariño y amor 
-    Att: FERNANDO ARIAN
-  </p>
-  <hr style="margin: 40px 0;">
-  <div class="blog">
-  <h2> hello </h2>
-  <p>hello fer</p>
-  </div>
-</div>
-  </style>
-<script>
-  document.getElementById("btnBlogs").addEventListener("click", function() {
-    // Oculta la sección principal
-    document.getElementById("paginaPrincipal").style.display = "none";
-
-    // Muestra la sección del blog
-    document.getElementById("blogSection").style.display = "block";
-  });
-</script>
 </body>
 </html>
