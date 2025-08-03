@@ -45,6 +45,33 @@
     }
 
 
+   .blog-title {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: bold;
+      color: #1a1a1a;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .blog-title:hover {
+      color: #3b6e79;
+    }
+
+    .blog-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      padding: 0;
+    }
+
+    /* cuando está expandido */
+    .blog-entry.open .blog-content {
+      max-height: 2000px; /* suficiente para mostrar todo el contenido */
+      padding-top: 10px;
+    }
+    
     .boton-volver {
       display: inline-block; /* ocupa solo el espacio del texto */
       font-family: "Times", Helvetica, sans-serif;
@@ -72,7 +99,10 @@
           <a class="boton-volver" href="index.html">ARIAN</a>
       </div>
     <div class="blog-entry">
-      <h2>No sé si esto es un blog o un diario, pero está pasando.</h2>
+      <div class="blog-title" onclick="toggleBlog(this)">
+        No sé si esto es un blog o un diario, pero está pasando.
+      </div>  
+      <div class="blog-content">
       <p>
         Hola soy FERNANDO ARIAN. En este momento de mi vida estoy buscándome (LLEVO ASÍ 3 AÑOS) JAJAJA.
         Este website es un proyecto que tenía pensado desde hace mucho, pero no sabía por dónde empezar y tampoco tenía
@@ -87,7 +117,9 @@
         <br> Espero lo tomen con tanto cariño y amor
         <br>Att: FERNANDO ARIAN
       </p>
+      </div>
     </div>
+    
 
     <div class="blog-entry">
       <h2>¿¡ES DIFÍCIL AMAR, O ENCONTRAR UN BUEN AMOR!?</h2>
@@ -146,6 +178,11 @@
     </div>
   </div>
 </div>
-
+<script>
+  function toggleBlog(element) {
+    const entry = element.parentElement;
+    entry.classList.toggle('open');
+  }
+</script>
 </body>
 </html>
